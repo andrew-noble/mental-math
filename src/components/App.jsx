@@ -7,37 +7,25 @@ import "./App.css";
 export default function App() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [questionFormat, setQuestionFormat] = useState(0);
-  const [currentEntry, setCurrentEntry] = useState("");
-  const [score, setScore] = useState(0);
 
-  function handleEntry(number) {
-    setCurrentEntry((prev) => prev + number);
-  }
-
-  function handleAnswer() {
-    let isCorrect = false;
+  function handleSubmit(answer) {
     switch (questionFormat) {
       case 0:
-        isCorrect = currentEntry === questions[currentQuestion].operand1;
+        isCorrect = answer === questions[currentQuestion].operand1;
         break;
       case 1:
-        isCorrect = currentEntry === questions[currentQuestion].operand2;
+        isCorrect = answer === questions[currentQuestion].operand2;
         break;
       case 2:
-        isCorrect = currentEntry === questions[currentQuestion].result;
+        isCorrect = answer === questions[currentQuestion].result;
         break;
     }
 
-    isCorrect ? setScore((prev) => prev + 1) : null;
+    isCorrect ? console.log("correct") : console.log("incorrect");
 
-    //reset
-    setCurrentEntry("");
+    //reset question
     setCurrentQuestion(Math.floor(Math.random() * questions.length));
     setQuestionFormat(Math.floor(Math.random() * 3));
-  }
-
-  if (currentEntry.length == questions[currentQuestion].result.length) {
-    handleAnswer();
   }
 
   return (
@@ -45,9 +33,8 @@ export default function App() {
       <PromptBar
         currentQuestion={currentQuestion}
         questionFormat={questionFormat}
-        currentEntry={currentEntry}
       />
-      <NumberPad handleEntry={handleEntry} />
+      <EntryArea handleSubmit={handleSubmit} />
     </>
   );
 }
