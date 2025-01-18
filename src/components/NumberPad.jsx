@@ -1,4 +1,3 @@
-import NumberButton from "./NumberButton";
 import "./App.css";
 
 export default function NumberPad({
