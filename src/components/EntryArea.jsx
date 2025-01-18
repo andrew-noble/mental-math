@@ -1,7 +1,7 @@
 import { useState } from "react";
 import NumberPad from "./NumberPad";
 
-export default function EntryArea({ handleSubmit }) {
+export default function EntryArea({ checkAnswer }) {
   const [currentEntry, setCurrentEntry] = useState("");
 
   function handleChange(event) {
@@ -16,15 +16,29 @@ export default function EntryArea({ handleSubmit }) {
     setCurrentEntry((prev) => prev.slice(0, -1));
   }
 
+  function handleSubmit() {
+    checkAnswer(currentEntry);
+    setCurrentEntry("");
+  }
+
   return (
     <>
-      <form onSubmit={() => handleSubmit(currentEntry)}>
-        <input type="text" value={currentEntry} onChange={handleChange} />
-      </form>
+      <input
+        autoFocus
+        type="text"
+        value={currentEntry}
+        onChange={handleChange}
+        onBlur={(e) => {
+          e.target.focus();
+        }}
+        onKeyDown={(e) => {
+          e.key === "Enter" ? handleSubmit() : null;
+        }}
+      />
       <NumberPad
         handleButtonClick={handleButtonClick}
         handleBackspace={handleBackspace}
-        handleSubmit={() => handleSubmit(currentEntry)}
+        handleSubmit={handleSubmit}
       />
     </>
   );
