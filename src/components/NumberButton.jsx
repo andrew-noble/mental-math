@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./App.css";
 
-export default function NumberButton({ number, handleNumberClick }) {
+export default function NumberButton({ number, handleEntry }) {
   return (
     <>
-      <button onClick={() => handleNumberClick(number)}>{number}</button>
+      <button onClick={() => handleEntry(number)}>{number}</button>
     </>
   );
 }

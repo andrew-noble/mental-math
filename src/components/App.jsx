@@ -9,13 +9,12 @@ export default function App() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [currentEntry, setCurrentEntry] = useState("");
 
-  function handleNumberClick(number) {
-    setCurrentEntry(currentEntry + number);
-    console.log(currentEntry, questions[currentQuestion].answer);
+  function handleEntry(number) {
+    setCurrentEntry((prev) => prev + number);
+  }
 
-    if (currentEntry.length == questions[currentQuestion].answer.length) {
-      handleAnswer();
-    }
+  if (currentEntry.length == questions[currentQuestion].answer.length) {
+    handleAnswer();
   }
 
   function handleAnswer() {
@@ -34,7 +33,7 @@ export default function App() {
     <>
       <Prompt currentQuestion={currentQuestion} />
       <EntryBar currentEntry={currentEntry} />
-      <NumberPad handleNumberClick={handleNumberClick} />
+      <NumberPad handleEntry={handleEntry} />
     </>
   );
 }
