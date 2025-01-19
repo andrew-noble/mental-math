@@ -15,23 +15,29 @@ export default function App() {
     if (answer === question.expectedAnswer) {
       setScore((prev) => prev + 1);
       setShowCorrectMessage(true);
-      setTimeout(() => setShowCorrectMessage(false), 250);
+      setTimeout(() => setShowCorrectMessage(false), 500);
     } else {
       console.log("incorrect");
       setShowIncorrectMessage(true);
-      setTimeout(() => setShowIncorrectMessage(false), 250);
+      setTimeout(() => setShowIncorrectMessage(false), 500);
     }
     //reset question
     setQuestion(getQuestion());
   }
 
   return (
-    <>
+    <div className="flex flex-col items-center justify-center h-screen">
+      {showCorrectMessage ? (
+        <p className="text-lg animate-floatUp">Correct! 🎉</p>
+      ) : null}
+      {showIncorrectMessage ? (
+        <p className="text-lg animate-floatUp">Incorrect 😥</p>
+      ) : null}
       <PromptBar prompt={question.prompt} />
       <EntryArea checkAnswer={checkAnswer} />
-      {showCorrectMessage ? <h3>Correct! 🎉</h3> : null}
-      {showIncorrectMessage ? <h3>Incorrect 😥</h3> : null}
-      <h3>{score}</h3>
-    </>
+      <div className="bg-slate-300 text-black p-2 rounded">
+        <h3>Score: {score}</h3>
+      </div>
+    </div>
   );
 }
