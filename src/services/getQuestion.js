@@ -10,15 +10,15 @@ export default function getQuestion() {
 
   switch (formatRandomizer) {
     case 0:
-      prompt = `__ x ${q.operand2} = ${q.result}`;
+      prompt = `__ x ${q.operand2} = ${q.result}?`;
       expectedAnswer = q.operand1;
       break;
     case 1:
-      prompt = `__ x ${q.operand1} = ${q.result}`;
+      prompt = `__ x ${q.operand1} = ${q.result}?`;
       expectedAnswer = q.operand2;
       break;
     case 2:
-      prompt = `${q.operand1} x ${q.operand2} = __`;
+      prompt = `${q.operand1} x ${q.operand2} = __?`;
       expectedAnswer = q.result;
       break;
   }

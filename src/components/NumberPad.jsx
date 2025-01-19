@@ -5,7 +5,7 @@ export default function NumberPad({
 }) {
   return (
     <>
-      <div className="p-3 grid grid-cols-3 gap-4 w-max">
+      <div className="p-3 grid grid-cols-3 gap-4 w-max my-3">
         {Array.from({ length: 10 }, (_, i) => (
           <button
             key={i}
@@ -16,7 +16,7 @@ export default function NumberPad({
           </button>
         ))}
       </div>
-      <div>
+      <div className="flex">
         <button
           className="bg-yellow-500 text-white font-bold py-2 px-4 rounded hover:bg-yellow-600 m-3"
           onClick={handleBackspace}

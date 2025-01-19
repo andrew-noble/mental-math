@@ -5,8 +5,7 @@ import PromptBar from "./components/PromptBar";
 
 export default function App() {
   const [question, setQuestion] = useState(getQuestion());
-  const [showCorrectMessage, setShowCorrectMessage] = useState(false);
-  const [showIncorrectMessage, setShowIncorrectMessage] = useState(false);
+  const [feedback, setFeedback] = useState(null);
   const [score, setScore] = useState(0);
 
   function checkAnswer(answer) {
@@ -14,36 +13,28 @@ export default function App() {
 
     if (answer === question.expectedAnswer) {
       setScore((prev) => prev + 1);
-      setShowCorrectMessage(true);
-      //setTimeout(() => setShowCorrectMessage(false), 1500); //recorded for posterity, now using non-hardcoded onAnimationEnd event to unmount
+      setFeedback({ type: "correct", message: "Correct! 🎉", color: "green" });
     } else {
-      console.log("incorrect");
-      setShowIncorrectMessage(true);
+      setFeedback({ type: "incorrect", message: "Incorrect 😥", color: "red" });
     }
     //reset question
     setQuestion(getQuestion());
   }
 
-  function hideMessages() {
-    setShowCorrectMessage(false);
-    setShowIncorrectMessage(false);
-  }
-
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      {showCorrectMessage ? (
-        <p className="text-lg animate-floatUp" onAnimationEnd={hideMessages}>
-          Correct! 🎉
-        </p>
+    <div className="flex flex-col items-center justify-center h-screen p-5">
+      {feedback ? (
+        <div
+          className={`text-lg animate-floatUp rounded p-2 bg-${feedback.color}-400`}
+          onAnimationEnd={() => setFeedback(null)}
+        >
+          <p>{feedback.message}</p>
+        </div>
       ) : null}
-      {showIncorrectMessage ? (
-        <p className="text-lg animate-floatUp" onAnimationEnd={hideMessages}>
-          Incorrect 😥
-        </p>
-      ) : null}
+
       <PromptBar prompt={question.prompt} />
       <EntryArea checkAnswer={checkAnswer} />
-      <div className="bg-slate-300 text-black p-2 rounded">
+      <div className="bg-slate-300 text-black p-2 rounded my-3">
         <h3>Score: {score}</h3>
       </div>
     </div>
