@@ -8,12 +8,13 @@ export default function App() {
   const [question, setQuestion] = useState(getQuestion());
   const [showCorrectMessage, setShowCorrectMessage] = useState(false);
   const [showIncorrectMessage, setShowIncorrectMessage] = useState(false);
+  const [score, setScore] = useState(0);
 
   function checkAnswer(answer) {
     answer = parseInt(answer);
 
     if (answer === question.expectedAnswer) {
-      console.log("correct");
+      setScore((prev) => prev + 1);
       setShowCorrectMessage(true);
       setTimeout(() => setShowCorrectMessage(false), 250);
     } else {
@@ -31,6 +32,7 @@ export default function App() {
       <EntryArea checkAnswer={checkAnswer} />
       {showCorrectMessage ? <h3>Correct! 🎉</h3> : null}
       {showIncorrectMessage ? <h3>Incorrect 😥</h3> : null}
+      <h3>{score}</h3>
     </>
   );
 }
