@@ -15,23 +15,31 @@ export default function App() {
     if (answer === question.expectedAnswer) {
       setScore((prev) => prev + 1);
       setShowCorrectMessage(true);
-      setTimeout(() => setShowCorrectMessage(false), 500);
+      //setTimeout(() => setShowCorrectMessage(false), 1500); //recorded for posterity, now using non-hardcoded onAnimationEnd event to unmount
     } else {
       console.log("incorrect");
       setShowIncorrectMessage(true);
-      setTimeout(() => setShowIncorrectMessage(false), 500);
     }
     //reset question
     setQuestion(getQuestion());
   }
 
+  function hideMessages() {
+    setShowCorrectMessage(false);
+    setShowIncorrectMessage(false);
+  }
+
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       {showCorrectMessage ? (
-        <p className="text-lg animate-floatUp">Correct! 🎉</p>
+        <p className="text-lg animate-floatUp" onAnimationEnd={hideMessages}>
+          Correct! 🎉
+        </p>
       ) : null}
       {showIncorrectMessage ? (
-        <p className="text-lg animate-floatUp">Incorrect 😥</p>
+        <p className="text-lg animate-floatUp" onAnimationEnd={hideMessages}>
+          Incorrect 😥
+        </p>
       ) : null}
       <PromptBar prompt={question.prompt} />
       <EntryArea checkAnswer={checkAnswer} />
