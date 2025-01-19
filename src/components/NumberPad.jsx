@@ -1,5 +1,3 @@
-import "./App.css";
-
 export default function NumberPad({
   handleButtonClick,
   handleBackspace,
@@ -12,7 +10,12 @@ export default function NumberPad({
           {i}
         </button>
       ))}
-      <button onClick={handleBackspace}>Backspace</button>
+      <button
+        className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600"
+        onClick={handleBackspace}
+      >
+        Backspace
+      </button>
       <button onClick={handleSubmit}>Submit</button>
     </>
   );

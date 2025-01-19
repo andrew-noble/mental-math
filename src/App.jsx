@@ -1,8 +1,7 @@
 import { useState } from "react";
-import getQuestion from "../services/getQuestion";
-import EntryArea from "./EntryArea";
-import PromptBar from "./PromptBar";
-import "./App.css";
+import getQuestion from "./services/getQuestion";
+import EntryArea from "./components/EntryArea";
+import PromptBar from "./components/PromptBar";
 
 export default function App() {
   const [question, setQuestion] = useState(getQuestion());
