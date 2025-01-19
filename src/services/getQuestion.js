@@ -14,7 +14,7 @@ export default function getQuestion() {
       expectedAnswer = q.operand1;
       break;
     case 1:
-      prompt = `${q.operand1} x __ = ${q.result}`;
+      prompt = `__ x ${q.operand1} = ${q.result}`;
       expectedAnswer = q.operand2;
       break;
     case 2:
