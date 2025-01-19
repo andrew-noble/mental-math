@@ -1,4 +1,4 @@
-import questions from "../questions.json";
+import questions from "../questions-mt.json";
 
 //eventually this will be a call to an API
 export default function getQuestion() {

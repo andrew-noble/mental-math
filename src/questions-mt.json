@@ -1,0 +1,849 @@
+[
+  {
+    "id": 0,
+    "type": "multiplication",
+    "operand1": 2,
+    "operand2": 2,
+    "result": 4
+  },
+  {
+    "id": 1,
+    "type": "multiplication",
+    "operand1": 2,
+    "operand2": 3,
+    "result": 6
+  },
+  {
+    "id": 2,
+    "type": "multiplication",
+    "operand1": 2,
+    "operand2": 4,
+    "result": 8
+  },
+  {
+    "id": 3,
+    "type": "multiplication",
+    "operand1": 2,
+    "operand2": 5,
+    "result": 10
+  },
+  {
+    "id": 4,
+    "type": "multiplication",
+    "operand1": 2,
+    "operand2": 6,
+    "result": 12
+  },
+  {
+    "id": 5,
+    "type": "multiplication",
+    "operand1": 2,
+    "operand2": 7,
+    "result": 14
+  },
+  {
+    "id": 6,
+    "type": "multiplication",
+    "operand1": 2,
+    "operand2": 8,
+    "result": 16
+  },
+  {
+    "id": 7,
+    "type": "multiplication",
+    "operand1": 2,
+    "operand2": 9,
+    "result": 18
+  },
+  {
+    "id": 8,
+    "type": "multiplication",
+    "operand1": 2,
+    "operand2": 10,
+    "result": 20
+  },
+  {
+    "id": 9,
+    "type": "multiplication",
+    "operand1": 2,
+    "operand2": 11,
+    "result": 22
+  },
+  {
+    "id": 10,
+    "type": "multiplication",
+    "operand1": 2,
+    "operand2": 12,
+    "result": 24
+  },
+  {
+    "id": 11,
+    "type": "multiplication",
+    "operand1": 3,
+    "operand2": 2,
+    "result": 6
+  },
+  {
+    "id": 12,
+    "type": "multiplication",
+    "operand1": 3,
+    "operand2": 3,
+    "result": 9
+  },
+  {
+    "id": 13,
+    "type": "multiplication",
+    "operand1": 3,
+    "operand2": 4,
+    "result": 12
+  },
+  {
+    "id": 14,
+    "type": "multiplication",
+    "operand1": 3,
+    "operand2": 5,
+    "result": 15
+  },
+  {
+    "id": 15,
+    "type": "multiplication",
+    "operand1": 3,
+    "operand2": 6,
+    "result": 18
+  },
+  {
+    "id": 16,
+    "type": "multiplication",
+    "operand1": 3,
+    "operand2": 7,
+    "result": 21
+  },
+  {
+    "id": 17,
+    "type": "multiplication",
+    "operand1": 3,
+    "operand2": 8,
+    "result": 24
+  },
+  {
+    "id": 18,
+    "type": "multiplication",
+    "operand1": 3,
+    "operand2": 9,
+    "result": 27
+  },
+  {
+    "id": 19,
+    "type": "multiplication",
+    "operand1": 3,
+    "operand2": 10,
+    "result": 30
+  },
+  {
+    "id": 20,
+    "type": "multiplication",
+    "operand1": 3,
+    "operand2": 11,
+    "result": 33
+  },
+  {
+    "id": 21,
+    "type": "multiplication",
+    "operand1": 3,
+    "operand2": 12,
+    "result": 36
+  },
+  {
+    "id": 22,
+    "type": "multiplication",
+    "operand1": 4,
+    "operand2": 2,
+    "result": 8
+  },
+  {
+    "id": 23,
+    "type": "multiplication",
+    "operand1": 4,
+    "operand2": 3,
+    "result": 12
+  },
+  {
+    "id": 24,
+    "type": "multiplication",
+    "operand1": 4,
+    "operand2": 4,
+    "result": 16
+  },
+  {
+    "id": 25,
+    "type": "multiplication",
+    "operand1": 4,
+    "operand2": 5,
+    "result": 20
+  },
+  {
+    "id": 26,
+    "type": "multiplication",
+    "operand1": 4,
+    "operand2": 6,
+    "result": 24
+  },
+  {
+    "id": 27,
+    "type": "multiplication",
+    "operand1": 4,
+    "operand2": 7,
+    "result": 28
+  },
+  {
+    "id": 28,
+    "type": "multiplication",
+    "operand1": 4,
+    "operand2": 8,
+    "result": 32
+  },
+  {
+    "id": 29,
+    "type": "multiplication",
+    "operand1": 4,
+    "operand2": 9,
+    "result": 36
+  },
+  {
+    "id": 30,
+    "type": "multiplication",
+    "operand1": 4,
+    "operand2": 10,
+    "result": 40
+  },
+  {
+    "id": 31,
+    "type": "multiplication",
+    "operand1": 4,
+    "operand2": 11,
+    "result": 44
+  },
+  {
+    "id": 32,
+    "type": "multiplication",
+    "operand1": 4,
+    "operand2": 12,
+    "result": 48
+  },
+  {
+    "id": 33,
+    "type": "multiplication",
+    "operand1": 5,
+    "operand2": 2,
+    "result": 10
+  },
+  {
+    "id": 34,
+    "type": "multiplication",
+    "operand1": 5,
+    "operand2": 3,
+    "result": 15
+  },
+  {
+    "id": 35,
+    "type": "multiplication",
+    "operand1": 5,
+    "operand2": 4,
+    "result": 20
+  },
+  {
+    "id": 36,
+    "type": "multiplication",
+    "operand1": 5,
+    "operand2": 5,
+    "result": 25
+  },
+  {
+    "id": 37,
+    "type": "multiplication",
+    "operand1": 5,
+    "operand2": 6,
+    "result": 30
+  },
+  {
+    "id": 38,
+    "type": "multiplication",
+    "operand1": 5,
+    "operand2": 7,
+    "result": 35
+  },
+  {
+    "id": 39,
+    "type": "multiplication",
+    "operand1": 5,
+    "operand2": 8,
+    "result": 40
+  },
+  {
+    "id": 40,
+    "type": "multiplication",
+    "operand1": 5,
+    "operand2": 9,
+    "result": 45
+  },
+  {
+    "id": 41,
+    "type": "multiplication",
+    "operand1": 5,
+    "operand2": 10,
+    "result": 50
+  },
+  {
+    "id": 42,
+    "type": "multiplication",
+    "operand1": 5,
+    "operand2": 11,
+    "result": 55
+  },
+  {
+    "id": 43,
+    "type": "multiplication",
+    "operand1": 5,
+    "operand2": 12,
+    "result": 60
+  },
+  {
+    "id": 44,
+    "type": "multiplication",
+    "operand1": 6,
+    "operand2": 2,
+    "result": 12
+  },
+  {
+    "id": 45,
+    "type": "multiplication",
+    "operand1": 6,
+    "operand2": 3,
+    "result": 18
+  },
+  {
+    "id": 46,
+    "type": "multiplication",
+    "operand1": 6,
+    "operand2": 4,
+    "result": 24
+  },
+  {
+    "id": 47,
+    "type": "multiplication",
+    "operand1": 6,
+    "operand2": 5,
+    "result": 30
+  },
+  {
+    "id": 48,
+    "type": "multiplication",
+    "operand1": 6,
+    "operand2": 6,
+    "result": 36
+  },
+  {
+    "id": 49,
+    "type": "multiplication",
+    "operand1": 6,
+    "operand2": 7,
+    "result": 42
+  },
+  {
+    "id": 50,
+    "type": "multiplication",
+    "operand1": 6,
+    "operand2": 8,
+    "result": 48
+  },
+  {
+    "id": 51,
+    "type": "multiplication",
+    "operand1": 6,
+    "operand2": 9,
+    "result": 54
+  },
+  {
+    "id": 52,
+    "type": "multiplication",
+    "operand1": 6,
+    "operand2": 10,
+    "result": 60
+  },
+  {
+    "id": 53,
+    "type": "multiplication",
+    "operand1": 6,
+    "operand2": 11,
+    "result": 66
+  },
+  {
+    "id": 54,
+    "type": "multiplication",
+    "operand1": 6,
+    "operand2": 12,
+    "result": 72
+  },
+  {
+    "id": 55,
+    "type": "multiplication",
+    "operand1": 7,
+    "operand2": 2,
+    "result": 14
+  },
+  {
+    "id": 56,
+    "type": "multiplication",
+    "operand1": 7,
+    "operand2": 3,
+    "result": 21
+  },
+  {
+    "id": 57,
+    "type": "multiplication",
+    "operand1": 7,
+    "operand2": 4,
+    "result": 28
+  },
+  {
+    "id": 58,
+    "type": "multiplication",
+    "operand1": 7,
+    "operand2": 5,
+    "result": 35
+  },
+  {
+    "id": 59,
+    "type": "multiplication",
+    "operand1": 7,
+    "operand2": 6,
+    "result": 42
+  },
+  {
+    "id": 60,
+    "type": "multiplication",
+    "operand1": 7,
+    "operand2": 7,
+    "result": 49
+  },
+  {
+    "id": 61,
+    "type": "multiplication",
+    "operand1": 7,
+    "operand2": 8,
+    "result": 56
+  },
+  {
+    "id": 62,
+    "type": "multiplication",
+    "operand1": 7,
+    "operand2": 9,
+    "result": 63
+  },
+  {
+    "id": 63,
+    "type": "multiplication",
+    "operand1": 7,
+    "operand2": 10,
+    "result": 70
+  },
+  {
+    "id": 64,
+    "type": "multiplication",
+    "operand1": 7,
+    "operand2": 11,
+    "result": 77
+  },
+  {
+    "id": 65,
+    "type": "multiplication",
+    "operand1": 7,
+    "operand2": 12,
+    "result": 84
+  },
+  {
+    "id": 66,
+    "type": "multiplication",
+    "operand1": 8,
+    "operand2": 2,
+    "result": 16
+  },
+  {
+    "id": 67,
+    "type": "multiplication",
+    "operand1": 8,
+    "operand2": 3,
+    "result": 24
+  },
+  {
+    "id": 68,
+    "type": "multiplication",
+    "operand1": 8,
+    "operand2": 4,
+    "result": 32
+  },
+  {
+    "id": 69,
+    "type": "multiplication",
+    "operand1": 8,
+    "operand2": 5,
+    "result": 40
+  },
+  {
+    "id": 70,
+    "type": "multiplication",
+    "operand1": 8,
+    "operand2": 6,
+    "result": 48
+  },
+  {
+    "id": 71,
+    "type": "multiplication",
+    "operand1": 8,
+    "operand2": 7,
+    "result": 56
+  },
+  {
+    "id": 72,
+    "type": "multiplication",
+    "operand1": 8,
+    "operand2": 8,
+    "result": 64
+  },
+  {
+    "id": 73,
+    "type": "multiplication",
+    "operand1": 8,
+    "operand2": 9,
+    "result": 72
+  },
+  {
+    "id": 74,
+    "type": "multiplication",
+    "operand1": 8,
+    "operand2": 10,
+    "result": 80
+  },
+  {
+    "id": 75,
+    "type": "multiplication",
+    "operand1": 8,
+    "operand2": 11,
+    "result": 88
+  },
+  {
+    "id": 76,
+    "type": "multiplication",
+    "operand1": 8,
+    "operand2": 12,
+    "result": 96
+  },
+  {
+    "id": 77,
+    "type": "multiplication",
+    "operand1": 9,
+    "operand2": 2,
+    "result": 18
+  },
+  {
+    "id": 78,
+    "type": "multiplication",
+    "operand1": 9,
+    "operand2": 3,
+    "result": 27
+  },
+  {
+    "id": 79,
+    "type": "multiplication",
+    "operand1": 9,
+    "operand2": 4,
+    "result": 36
+  },
+  {
+    "id": 80,
+    "type": "multiplication",
+    "operand1": 9,
+    "operand2": 5,
+    "result": 45
+  },
+  {
+    "id": 81,
+    "type": "multiplication",
+    "operand1": 9,
+    "operand2": 6,
+    "result": 54
+  },
+  {
+    "id": 82,
+    "type": "multiplication",
+    "operand1": 9,
+    "operand2": 7,
+    "result": 63
+  },
+  {
+    "id": 83,
+    "type": "multiplication",
+    "operand1": 9,
+    "operand2": 8,
+    "result": 72
+  },
+  {
+    "id": 84,
+    "type": "multiplication",
+    "operand1": 9,
+    "operand2": 9,
+    "result": 81
+  },
+  {
+    "id": 85,
+    "type": "multiplication",
+    "operand1": 9,
+    "operand2": 10,
+    "result": 90
+  },
+  {
+    "id": 86,
+    "type": "multiplication",
+    "operand1": 9,
+    "operand2": 11,
+    "result": 99
+  },
+  {
+    "id": 87,
+    "type": "multiplication",
+    "operand1": 9,
+    "operand2": 12,
+    "result": 108
+  },
+  {
+    "id": 88,
+    "type": "multiplication",
+    "operand1": 10,
+    "operand2": 2,
+    "result": 20
+  },
+  {
+    "id": 89,
+    "type": "multiplication",
+    "operand1": 10,
+    "operand2": 3,
+    "result": 30
+  },
+  {
+    "id": 90,
+    "type": "multiplication",
+    "operand1": 10,
+    "operand2": 4,
+    "result": 40
+  },
+  {
+    "id": 91,
+    "type": "multiplication",
+    "operand1": 10,
+    "operand2": 5,
+    "result": 50
+  },
+  {
+    "id": 92,
+    "type": "multiplication",
+    "operand1": 10,
+    "operand2": 6,
+    "result": 60
+  },
+  {
+    "id": 93,
+    "type": "multiplication",
+    "operand1": 10,
+    "operand2": 7,
+    "result": 70
+  },
+  {
+    "id": 94,
+    "type": "multiplication",
+    "operand1": 10,
+    "operand2": 8,
+    "result": 80
+  },
+  {
+    "id": 95,
+    "type": "multiplication",
+    "operand1": 10,
+    "operand2": 9,
+    "result": 90
+  },
+  {
+    "id": 96,
+    "type": "multiplication",
+    "operand1": 10,
+    "operand2": 10,
+    "result": 100
+  },
+  {
+    "id": 97,
+    "type": "multiplication",
+    "operand1": 10,
+    "operand2": 11,
+    "result": 110
+  },
+  {
+    "id": 98,
+    "type": "multiplication",
+    "operand1": 10,
+    "operand2": 12,
+    "result": 120
+  },
+  {
+    "id": 99,
+    "type": "multiplication",
+    "operand1": 11,
+    "operand2": 2,
+    "result": 22
+  },
+  {
+    "id": 100,
+    "type": "multiplication",
+    "operand1": 11,
+    "operand2": 3,
+    "result": 33
+  },
+  {
+    "id": 101,
+    "type": "multiplication",
+    "operand1": 11,
+    "operand2": 4,
+    "result": 44
+  },
+  {
+    "id": 102,
+    "type": "multiplication",
+    "operand1": 11,
+    "operand2": 5,
+    "result": 55
+  },
+  {
+    "id": 103,
+    "type": "multiplication",
+    "operand1": 11,
+    "operand2": 6,
+    "result": 66
+  },
+  {
+    "id": 104,
+    "type": "multiplication",
+    "operand1": 11,
+    "operand2": 7,
+    "result": 77
+  },
+  {
+    "id": 105,
+    "type": "multiplication",
+    "operand1": 11,
+    "operand2": 8,
+    "result": 88
+  },
+  {
+    "id": 106,
+    "type": "multiplication",
+    "operand1": 11,
+    "operand2": 9,
+    "result": 99
+  },
+  {
+    "id": 107,
+    "type": "multiplication",
+    "operand1": 11,
+    "operand2": 10,
+    "result": 110
+  },
+  {
+    "id": 108,
+    "type": "multiplication",
+    "operand1": 11,
+    "operand2": 11,
+    "result": 121
+  },
+  {
+    "id": 109,
+    "type": "multiplication",
+    "operand1": 11,
+    "operand2": 12,
+    "result": 132
+  },
+  {
+    "id": 110,
+    "type": "multiplication",
+    "operand1": 12,
+    "operand2": 2,
+    "result": 24
+  },
+  {
+    "id": 111,
+    "type": "multiplication",
+    "operand1": 12,
+    "operand2": 3,
+    "result": 36
+  },
+  {
+    "id": 112,
+    "type": "multiplication",
+    "operand1": 12,
+    "operand2": 4,
+    "result": 48
+  },
+  {
+    "id": 113,
+    "type": "multiplication",
+    "operand1": 12,
+    "operand2": 5,
+    "result": 60
+  },
+  {
+    "id": 114,
+    "type": "multiplication",
+    "operand1": 12,
+    "operand2": 6,
+    "result": 72
+  },
+  {
+    "id": 115,
+    "type": "multiplication",
+    "operand1": 12,
+    "operand2": 7,
+    "result": 84
+  },
+  {
+    "id": 116,
+    "type": "multiplication",
+    "operand1": 12,
+    "operand2": 8,
+    "result": 96
+  },
+  {
+    "id": 117,
+    "type": "multiplication",
+    "operand1": 12,
+    "operand2": 9,
+    "result": 108
+  },
+  {
+    "id": 118,
+    "type": "multiplication",
+    "operand1": 12,
+    "operand2": 10,
+    "result": 120
+  },
+  {
+    "id": 119,
+    "type": "multiplication",
+    "operand1": 12,
+    "operand2": 11,
+    "result": 132
+  },
+  {
+    "id": 120,
+    "type": "multiplication",
+    "operand1": 12,
+    "operand2": 12,
+    "result": 144
+  }
+]
