@@ -1,8 +1,10 @@
-# React + Vite
+# Mental Math Practice
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple quiz application to get very quick reps on pragmatic mental math. Categories include:
 
-Currently, two official plugins are available:
+- multiplication tables
+- percentages (coming soon)
+- ballparking (coming soon)
+- orders of magnitude (coming soon)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+If you have suggestions on a category of mental math that would be useful to you, let me know.
