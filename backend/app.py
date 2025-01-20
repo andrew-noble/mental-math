@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 # Configure SQLite database
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///example.db'  # Database file
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')  # Database file
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Disable event system (optional)
 db = SQLAlchemy(app)
 
@@ -66,6 +66,11 @@ def token_required(f):
 def home():
     return "Welcome to the Flask server!"
 
+@app.route('/api/test', methods=['GET'])
+@token_required #this decorator engages the jwt checking code
+def test_route(current_user):
+    return jsonify({'message' : 'Hello, ' + current_user.name + '!'})
+
 @app.route('/register', methods=['POST'])
 def register_new_user():
     data = request.get_json()
@@ -73,11 +78,30 @@ def register_new_user():
     if data is None:
         return jsonify({"error": "Invalid JSON"}), 400
 
-    # Process the data (for example, print it)
-    print(data.get('username'))
-
-    # Return a response
-    return jsonify({"message": "Data received", "data": data}), 200
+    # gets name, email and password
+    name, email = data.get('name'), data.get('email')
+    password = data.get('password')
+  
+    # checking for existing user
+    user = User.query\
+        .filter_by(email = email)\
+        .first()
+    if not user:
+        # database ORM object
+        user = User(
+            public_id = str(uuid.uuid4()),
+            name = name,
+            email = email,
+            password = generate_password_hash(password)
+        )
+        # insert user
+        db.session.add(user)
+        db.session.commit()
+  
+        return jsonify({"message": 'Successfully registered.'}), 201
+    else:
+        # returns 202 if user already exists
+        return jsonify({"message": 'User already exists. Please Log in.'}), 202
 
 @app.route('/data', methods=['POST'])
 def receive_data():
