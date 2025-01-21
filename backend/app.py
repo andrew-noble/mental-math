@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 # Configure SQLite database
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')  # Database file
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'  # Database file
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Disable event system (optional)
 
 #DB setup ---- 
@@ -31,7 +31,7 @@ class User(db.Model):
 
 # Create the database and tables
 with app.app_context():
-    db.drop_all() #obliterates the database, remove at prod
+    # db.drop_all() #obliterates the database, remove at prod
     db.create_all()
 
 #DB Setup ----
