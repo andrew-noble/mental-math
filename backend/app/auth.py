@@ -1,40 +1,14 @@
-# flask imports
-from flask import Flask, request, jsonify, make_response
-from flask_sqlalchemy import SQLAlchemy
-import uuid # for public id
-from  werkzeug.security import generate_password_hash, check_password_hash
-# imports for PyJWT authentication
+from flask import Blueprint, request, jsonify
+from functools import wraps
 import jwt
 from datetime import datetime, timedelta, timezone
-from functools import wraps
-from dotenv import load_dotenv
-import os
+import uuid
+from werkzeug.security import generate_password_hash, check_password_hash
+from . import db
+from .models import User
+from flask import current_app
 
-load_dotenv()
-
-app = Flask(__name__)
-
-# Configure SQLite database
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'  # Database file
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Disable event system (optional)
-
-#DB setup ---- 
-db = SQLAlchemy(app)
-
-# Define a model (table structure) (this is setting up the ORM)
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
-    public_id = db.Column(db.String(50), unique = True)
-    email = db.Column(db.String(70), unique = True)
-    password = db.Column(db.String(80))
-
-# Create the database and tables
-with app.app_context():
-    # db.drop_all() #obliterates the database, remove at prod
-    db.create_all()
-
-#DB Setup ----
+auth = Blueprint('auth', __name__)
 
 # decorator for verifying the jwt. This is just middleware that can be used to protect routes.
 # syntax is less than intuitive but the effect is that routes with this decorator have this jwt checking
@@ -52,9 +26,13 @@ def token_required(f):
 
         try:
             # decoding the payload to fetch the stored details
-            data = jwt.decode(token, app.config['SECRET_KEY'], algorithms=['HS256'])
+            data = jwt.decode(
+                token, 
+                current_app.config['SECRET_KEY'], 
+                algorithms=['HS256']
+            )
             current_user = User.query\
-                .filter_by(public_id = data['public_id'])\
+                .filter_by(public_id=data['public_id'])\
                 .first()
             print(current_user)
         except:
@@ -66,17 +44,8 @@ def token_required(f):
   
     return decorated
 
-@app.route('/', methods=['GET'])
-def home():
-    return "Welcome to the Flask server!"
-
-@app.route('/test', methods=['GET'])
-@token_required #this decorator engages the jwt checking code
-def test_route(current_user):
-    return jsonify({'message' : 'Hello, ' + current_user.email + '!'})
-
 # route for logging user in
-@app.route('/login', methods =['POST'])
+@auth.route('/login', methods =['POST'])
 def login():
     # creates dictionary of form data
     login_data = request.get_json()
@@ -96,13 +65,13 @@ def login():
         token = jwt.encode({
             'public_id': user.public_id,
             'exp' : datetime.now(timezone.utc) + timedelta(minutes = 30)
-        }, app.config['SECRET_KEY'], algorithm='HS256')
+        }, current_app.config['SECRET_KEY'], algorithm='HS256')
   
         return jsonify({'token' : token}), 201
     
     return jsonify({'message': 'Invalid email or password'}), 401
 
-@app.route('/register', methods=['POST'])
+@auth.route('/register', methods=['POST'])
 def register_new_user():
     data = request.get_json()
     # Check if data is None (indicates invalid JSON)
@@ -131,12 +100,4 @@ def register_new_user():
     else:
         # returns 202 if user already exists
         return jsonify({"message": f'User {email} already exists. Please Log in.'}), 202
-
-
-@app.route('/data', methods=['POST'])
-def receive_data():
-    data = request.get_json()
-    return jsonify({"received": data}), 201
-
-if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    #redirect(url_for('login')) #maybe add this later so that it just takes you to the login page
