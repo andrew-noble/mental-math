@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS question (
 ''')
 
 # Load data from JSON file
-with open('../questions-backup/questions-mt.json') as json_file:
+with open('../questions-backup/questions-mt.json') as json_file: #change this to the specific file you want to use
     data = json.load(json_file)
 
 # Insert data into the database

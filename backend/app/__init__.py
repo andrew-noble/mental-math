@@ -2,13 +2,16 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
 from dotenv import load_dotenv
-
-#instantiate the database
+from flask_cors import CORS
+#instantiate the ORM
 db = SQLAlchemy()
 
 #this is the "app factory" design pattern. It is the entrypoint that does setup and config
 def create_app():
     app = Flask(__name__)
+
+    CORS(app)
+    CORS(app, resources={r"/*": {"origins": "http://localhost:5173/"}})
 
     load_dotenv()
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')

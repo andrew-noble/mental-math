@@ -1,12 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import getQuestion from "./services/getQuestion";
 import EntryArea from "./components/EntryArea";
 import PromptBar from "./components/PromptBar";
+import { getAllQuestions } from "./api";
 
 export default function App() {
   const [question, setQuestion] = useState(getQuestion());
   const [feedback, setFeedback] = useState(null);
   const [score, setScore] = useState(0);
+  const [test, setTest] = useState(null);
+
+  useEffect(() => {
+    //necessary wrapper bc useEffect doesn't support async/await
+    async function fetchData() {
+      try {
+        const result = await getAllQuestions();
+        setTest(result.questions[0]);
+      } catch (e) {
+        console.log("Error fetching data from API: ", e);
+      }
+    }
+
+    fetchData();
+  }, []);
 
   function checkAnswer(answer) {
     answer = parseInt(answer);
@@ -22,21 +38,22 @@ export default function App() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen p-5">
-      {feedback ? (
-        <div
-          className={`text-lg animate-floatUp rounded p-2 bg-${feedback.color}-400`}
-          onAnimationEnd={() => setFeedback(null)}
-        >
-          <p>{feedback.message}</p>
-        </div>
-      ) : null}
+    <>{test ? <p>{test.type}</p> : <p>Loading...</p>}</>
+    // <div className="flex flex-col items-center justify-center h-screen p-5">
+    //   {feedback ? (
+    //     <div
+    //       className={`text-lg animate-floatUp rounded p-2 bg-${feedback.color}-400`}
+    //       onAnimationEnd={() => setFeedback(null)}
+    //     >
+    //       <p>{feedback.message}</p>
+    //     </div>
+    //   ) : null}
 
-      <PromptBar prompt={question.prompt} />
-      <EntryArea checkAnswer={checkAnswer} />
-      <div className="bg-slate-300 text-black p-2 rounded my-3">
-        <h3>Score: {score}</h3>
-      </div>
-    </div>
+    //   <PromptBar prompt={question.prompt} />
+    //   <EntryArea checkAnswer={checkAnswer} />
+    //   <div className="bg-slate-300 text-black p-2 rounded my-3">
+    //     <h3>Score: {score}</h3>
+    //   </div>
+    // </div>
   );
 }
