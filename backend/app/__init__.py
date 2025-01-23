@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 from dotenv import load_dotenv
 from flask_cors import CORS
+from flask_talisman import Talisman
 #instantiate the ORM
 db = SQLAlchemy()
 
@@ -12,6 +13,8 @@ def create_app():
 
     CORS(app)
     CORS(app, resources={r"/*": {"origins": "http://localhost:5173/"}})
+
+    Talisman(app) #enforces HTTPS
 
     load_dotenv()
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
