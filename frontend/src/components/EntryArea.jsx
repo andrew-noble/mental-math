@@ -4,22 +4,22 @@ import NumberPad from "./NumberPad";
 export default function EntryArea({ checkAnswer }) {
   const [currentEntry, setCurrentEntry] = useState("");
 
-  function handleChange(event) {
+  const handleChange = (event) => {
     setCurrentEntry(event.target.value);
-  }
+  };
 
-  function handleButtonClick(number) {
+  const handleButtonClick = (number) => {
     setCurrentEntry((prev) => prev + number);
-  }
+  };
 
-  function handleBackspace() {
+  const handleBackspace = () => {
     setCurrentEntry((prev) => prev.slice(0, -1));
-  }
+  };
 
-  function handleSubmit() {
+  const handleSubmit = () => {
     checkAnswer(currentEntry);
     setCurrentEntry("");
-  }
+  };
 
   return (
     <>

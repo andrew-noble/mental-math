@@ -24,7 +24,7 @@ export default function App() {
     fetchData();
   }, []);
 
-  function checkAnswer(answer) {
+  const checkAnswer = (answer) => {
     answer = parseInt(answer);
 
     if (answer === question.expectedAnswer) {
@@ -35,25 +35,24 @@ export default function App() {
     }
     //reset question
     setQuestion(getQuestion());
-  }
+  };
 
   return (
-    <>{test ? <p>{test.type}</p> : <p>Loading...</p>}</>
-    // <div className="flex flex-col items-center justify-center h-screen p-5">
-    //   {feedback ? (
-    //     <div
-    //       className={`text-lg animate-floatUp rounded p-2 bg-${feedback.color}-400`}
-    //       onAnimationEnd={() => setFeedback(null)}
-    //     >
-    //       <p>{feedback.message}</p>
-    //     </div>
-    //   ) : null}
+    <div className="flex flex-col items-center justify-center h-screen p-5">
+      {feedback ? (
+        <div
+          className={`text-lg animate-floatUp rounded p-2 bg-${feedback.color}-400`}
+          onAnimationEnd={() => setFeedback(null)}
+        >
+          <p>{feedback.message}</p>
+        </div>
+      ) : null}
 
-    //   <PromptBar prompt={question.prompt} />
-    //   <EntryArea checkAnswer={checkAnswer} />
-    //   <div className="bg-slate-300 text-black p-2 rounded my-3">
-    //     <h3>Score: {score}</h3>
-    //   </div>
-    // </div>
+      <PromptBar prompt={question.prompt} />
+      <EntryArea checkAnswer={checkAnswer} />
+      <div className="bg-slate-300 text-black p-2 rounded my-3">
+        <h3>Score: {score}</h3>
+      </div>
+    </div>
   );
 }
