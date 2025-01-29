@@ -34,7 +34,6 @@ export default function EntryArea({ checkAnswer }) {
         onKeyDown={(e) => {
           e.key === "Enter" ? handleSubmit() : null;
         }}
-        readOnly
         inputMode="none"
       />
       <NumberPad
