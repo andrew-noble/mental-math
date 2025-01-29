@@ -6,13 +6,13 @@ export default function NumberPad({
   return (
     <>
       <div className="p-3 grid grid-cols-3 gap-4 w-max my-3">
-        {Array.from({ length: 10 }, (_, i) => (
+        {[7, 8, 9, 4, 5, 6, 1, 2, 3, 0].map((num) => (
           <button
-            key={i}
+            key={num}
             className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600"
             onClick={() => handleButtonClick(i)}
           >
-            {i}
+            {num}
           </button>
         ))}
       </div>
