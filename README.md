@@ -3,7 +3,7 @@
 A simple quiz application to get very quick reps on pragmatic mental math. Categories include:
 
 - multiplication tables
-- percentages (coming soon)
+- percentages
 - ballparking (coming soon)
 - orders of magnitude (coming soon)
 
