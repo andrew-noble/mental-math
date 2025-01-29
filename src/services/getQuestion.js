@@ -1,4 +1,4 @@
-import questions from "../questions-mt.json";
+import questions from "../questions.json";
 
 //eventually this will be a call to an API
 export default function getQuestion() {
@@ -7,18 +7,19 @@ export default function getQuestion() {
   const q = questions[questionRandomizer];
   let prompt;
   let expectedAnswer;
+  const symbol = q.type === "multiplication" ? "x" : "% of";
 
   switch (formatRandomizer) {
     case 0:
-      prompt = `__ x ${q.operand2} = ${q.result}?`;
+      prompt = `__ ${symbol} ${q.operand2} = ${q.result}?`;
       expectedAnswer = q.operand1;
       break;
     case 1:
-      prompt = `__ x ${q.operand1} = ${q.result}?`;
+      prompt = `__ ${symbol} ${q.operand1} = ${q.result}?`;
       expectedAnswer = q.operand2;
       break;
     case 2:
-      prompt = `${q.operand1} x ${q.operand2} = __?`;
+      prompt = `${q.operand1} ${symbol} ${q.operand2} = __?`;
       expectedAnswer = q.result;
       break;
   }
