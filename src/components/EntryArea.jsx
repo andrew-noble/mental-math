@@ -9,7 +9,10 @@ export default function EntryArea({ checkAnswer, expectedLength }) {
     setCurrentEntry(newValue);
 
     if (newValue.length === expectedLength) {
-      handleSubmit(newValue);
+      setTimeout(() => {
+        //short delay so user can see their correct answer
+        handleSubmit(newValue);
+      }, 150);
     }
   };
 
@@ -37,6 +40,26 @@ export default function EntryArea({ checkAnswer, expectedLength }) {
         }}
         inputMode="none"
       />
+      <div className="mt-2 flex gap-2 justify-center">
+        {Array.from({ length: expectedLength }).map((_, i) => (
+          <div
+            key={i}
+            className={`
+              w-10 h-10 
+              border-2 
+              flex items-center justify-center
+              font-bold
+              ${
+                i < currentEntry.length
+                  ? "border-blue-500 text-blue-500"
+                  : "border-gray-300"
+              }
+            `}
+          >
+            {currentEntry[i]}
+          </div>
+        ))}
+      </div>
       <NumberPad
         handleButtonClick={handleChange}
         handleBackspace={handleBackspace}
