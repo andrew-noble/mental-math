@@ -1,13 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NumberPad from "./NumberPad";
 
 export default function EntryArea({ checkAnswer, expectedLength }) {
   const [currentEntry, setCurrentEntry] = useState("");
 
-  const handleChange = (event) => {
-    const newValue = event.target.value;
-    setCurrentEntry(newValue);
+  useEffect(() => {
+    // Add global keyboard listener
+    const handleKeyPress = (e) => {
+      if (e.key === "Enter") {
+        handleSubmit(currentEntry);
+      } else {
+        handleChange(e);
+      }
+    };
 
+    window.addEventListener("keydown", handleKeyPress);
+
+    // Clean up
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, [currentEntry]); // Don't forget dependencies
+
+  const handleChange = (event) => {
+    let newValue;
+
+    switch (event.type) {
+      case "click":
+        newValue = currentEntry + event.target.value;
+        break;
+      case "keydown":
+        newValue = currentEntry + event.key;
+    }
+
+    setCurrentEntry(newValue);
     if (newValue.length === expectedLength) {
       setTimeout(() => {
         //short delay so user can see their correct answer
@@ -27,19 +51,6 @@ export default function EntryArea({ checkAnswer, expectedLength }) {
 
   return (
     <>
-      <input
-        autoFocus
-        type="text"
-        value={currentEntry}
-        onChange={handleChange}
-        onBlur={(e) => {
-          e.target.focus();
-        }}
-        onKeyDown={(e) => {
-          e.key === "Enter" ? handleSubmit(currentEntry) : null;
-        }}
-        inputMode="none"
-      />
       <div className="mt-2 flex gap-2 justify-center">
         {Array.from({ length: expectedLength }).map((_, i) => (
           <div
