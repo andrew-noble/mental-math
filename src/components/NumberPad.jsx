@@ -20,13 +20,6 @@ export default function NumberPad({ handleButtonClick }) {
       >
         Backspace
       </button>
-      {/* <button
-          className="bg-green-500 text-white font-bold py-2 px-4 text-xl rounded hover:bg-green-600 m-3"
-          value="Enter"
-          onClick={(event) => handleButtonClick(event)}
-        >
-          Enter
-        </button> */}
     </div>
   );
 }

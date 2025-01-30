@@ -7,7 +7,6 @@ export default function EntryArea({ checkAnswer, expectedLength }) {
   // keyboard handler attached to the window
   useEffect(() => {
     const handleKeyPress = (e) => {
-      if (e.key === "Enter") return handleEnter(currentEntry);
       if (e.key === "Backspace") return handleBackspace();
       if (/^[0-9.]$/.test(e.key)) return addDigit(e.key);
     };
@@ -18,7 +17,6 @@ export default function EntryArea({ checkAnswer, expectedLength }) {
 
   //click handler
   const handleButtonClick = (event) => {
-    if (event.target.value === "Enter") return handleEnter(currentEntry);
     if (event.target.value === "Backspace") return handleBackspace();
     return addDigit(event.target.value);
   };
