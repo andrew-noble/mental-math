@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import getQuestion from "./services/getQuestion";
 import EntryArea from "./components/EntryArea";
 import PromptBar from "./components/PromptBar";
@@ -37,10 +37,10 @@ export default function App() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen p-5">
+    <div className="flex flex-col items-center justify-center h-screen p-3">
       {feedback ? (
         <div
-          className={`text-lg animate-floatUp rounded p-2 bg-${feedback.color}-400 h-auto`}
+          className={`animate-floatUp rounded p-2 bg-${feedback.color}-400 h-auto`}
           onAnimationEnd={() => setFeedback(null)}
         >
           <p>{feedback.message}</p>
@@ -54,7 +54,7 @@ export default function App() {
         checkAnswer={checkAnswer}
         expectedLength={question.expectedAnswer.toString().length}
       />
-      <div className="bg-slate-300 text-black p-2 rounded my-3">
+      <div className="flex bg-slate-300 text-black p-2 rounded my-2 text-xl font-bold">
         <h3>Score: {score}</h3>
       </div>
     </div>

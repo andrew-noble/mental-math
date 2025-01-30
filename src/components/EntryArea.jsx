@@ -48,7 +48,7 @@ export default function EntryArea({ checkAnswer, expectedLength }) {
 
   return (
     <>
-      <div className="mt-2 flex gap-2 justify-center">
+      <div className="m-2 flex gap-2 justify-center">
         {Array.from({ length: expectedLength }).map((_, i) => (
           <div
             key={i}
