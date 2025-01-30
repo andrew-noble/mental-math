@@ -10,7 +10,7 @@ export default {
         },
       },
       animation: {
-        floatUp: "floatUp 10s ease-out",
+        floatUp: "floatUp 1s ease-out",
       },
     },
   },

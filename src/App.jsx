@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import getQuestion from "./services/getQuestion";
 import EntryArea from "./components/EntryArea";
 import PromptBar from "./components/PromptBar";
-import { getAllQuestions } from "./api";
 
 export default function App() {
   const [question, setQuestion] = useState(getQuestion());
@@ -36,6 +35,9 @@ export default function App() {
     //reset question
     setQuestion(getQuestion());
   };
+
+  console.log("Expected answer:", question.expectedAnswer);
+  console.log("Expected length:", question.expectedAnswer.toString().length);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen p-5">

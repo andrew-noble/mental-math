@@ -6,33 +6,52 @@ export default function EntryArea({ checkAnswer, expectedLength }) {
 
   useEffect(() => {
     // Add global keyboard listener
-    const handleKeyPress = (e) =>
-      e.key === "Enter" ? handleSubmit(currentEntry) : handleChange(e);
+    const handleKeyPress = (e) => {
+      const keyActions = {
+        Enter: () => handleSubmit(currentEntry),
+        Backspace: handleBackspace,
+      };
+
+      if (keyActions[e.key]) {
+        keyActions[e.key]();
+        return;
+      }
+
+      if (!Number.isInteger(Number(e.key))) {
+        return;
+      }
+
+      handleChange(e);
+    };
 
     window.addEventListener("keydown", handleKeyPress);
 
     // Clean up
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, []);
+  }, [expectedLength, currentEntry]); //need these bc of handleChange call inside useEffect depends on them
 
   const handleChange = (event) => {
-    let newValue;
+    setCurrentEntry((prev) => {
+      let newValue;
 
-    switch (event.type) {
-      case "click":
-        newValue = currentEntry + event.target.value;
-        break;
-      case "keydown":
-        newValue = currentEntry + event.key;
-    }
+      switch (event.type) {
+        case "click":
+          newValue = prev + event.target.value;
+          break;
+        case "keydown":
+          newValue = prev + event.key;
+          break;
+      }
 
-    setCurrentEntry(newValue);
-    if (newValue.length === expectedLength) {
-      setTimeout(() => {
-        //short delay so user can see their correct answer
-        handleSubmit(newValue);
-      }, 150);
-    }
+      if (newValue.length === expectedLength) {
+        setTimeout(() => {
+          //short delay so user can see their correct answer
+          handleSubmit(newValue);
+        }, 150);
+      }
+
+      return newValue;
+    });
   };
 
   const handleBackspace = () => {
@@ -62,7 +81,7 @@ export default function EntryArea({ checkAnswer, expectedLength }) {
               }
             `}
           >
-            {currentEntry[i]}
+            {currentEntry[i] || ""}
           </div>
         ))}
       </div>
