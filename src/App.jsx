@@ -41,12 +41,14 @@ export default function App() {
     <div className="flex flex-col items-center justify-center h-screen p-5">
       {feedback ? (
         <div
-          className={`text-lg animate-floatUp rounded p-2 bg-${feedback.color}-400`}
+          className={`text-lg animate-floatUp rounded p-2 bg-${feedback.color}-400 h-auto`}
           onAnimationEnd={() => setFeedback(null)}
         >
           <p>{feedback.message}</p>
         </div>
-      ) : null}
+      ) : (
+        <div className="h-min-35"></div>
+      )}
 
       <PromptBar prompt={question.prompt} />
       <EntryArea

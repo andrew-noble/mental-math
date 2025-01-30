@@ -6,11 +6,11 @@ export default {
       keyframes: {
         floatUp: {
           "0%": { opacity: 1, transform: "translateY(0)" },
-          "100%": { opacity: 0, transform: "translateY(-50px)" },
+          "100%": { opacity: 0, transform: "translateY(-30px)" },
         },
       },
       animation: {
-        floatUp: "floatUp 1.5s ease-out",
+        floatUp: "floatUp 10s ease-out",
       },
     },
   },

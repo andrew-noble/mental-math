@@ -6,19 +6,14 @@ export default function EntryArea({ checkAnswer, expectedLength }) {
 
   useEffect(() => {
     // Add global keyboard listener
-    const handleKeyPress = (e) => {
-      if (e.key === "Enter") {
-        handleSubmit(currentEntry);
-      } else {
-        handleChange(e);
-      }
-    };
+    const handleKeyPress = (e) =>
+      e.key === "Enter" ? handleSubmit(currentEntry) : handleChange(e);
 
     window.addEventListener("keydown", handleKeyPress);
 
     // Clean up
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [currentEntry]); // Don't forget dependencies
+  }, []);
 
   const handleChange = (event) => {
     let newValue;

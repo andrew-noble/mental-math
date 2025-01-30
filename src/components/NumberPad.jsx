@@ -6,7 +6,7 @@ export default function NumberPad({
   return (
     <div className="bg-gray-100 p-2 my-3 rounded-lg flex flex-col items-center">
       <div className="p-3 grid grid-cols-3 gap-4 w-max my-3">
-        {[7, 8, 9, 4, 5, 6, 1, 2, 3, 0].map((num) => (
+        {[7, 8, 9, 4, 5, 6, 1, 2, 3, 0, "."].map((num) => (
           <button
             key={num}
             className="bg-blue-500 text-white font-bold py-4 px-6 rounded hover:bg-blue-600"
