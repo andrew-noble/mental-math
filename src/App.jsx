@@ -36,9 +36,6 @@ export default function App() {
     setQuestion(getQuestion());
   };
 
-  console.log("Expected answer:", question.expectedAnswer);
-  console.log("Expected length:", question.expectedAnswer.toString().length);
-
   return (
     <div className="flex flex-col items-center justify-center h-screen p-5">
       {feedback ? (

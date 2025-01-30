@@ -4,62 +4,45 @@ import NumberPad from "./NumberPad";
 export default function EntryArea({ checkAnswer, expectedLength }) {
   const [currentEntry, setCurrentEntry] = useState("");
 
+  // keyboard handler attached to the window
   useEffect(() => {
-    // Add global keyboard listener
     const handleKeyPress = (e) => {
-      const keyActions = {
-        Enter: () => handleSubmit(currentEntry),
-        Backspace: handleBackspace,
-      };
-
-      if (keyActions[e.key]) {
-        keyActions[e.key]();
-        return;
-      }
-
-      if (!Number.isInteger(Number(e.key))) {
-        return;
-      }
-
-      handleChange(e);
+      if (e.key === "Enter") return handleEnter(currentEntry);
+      if (e.key === "Backspace") return handleBackspace();
+      if (/^[0-9.]$/.test(e.key)) return addDigit(e.key);
     };
 
     window.addEventListener("keydown", handleKeyPress);
-
-    // Clean up
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [expectedLength, currentEntry]); //need these bc of handleChange call inside useEffect depends on them
+  }, [currentEntry, expectedLength]);
 
-  const handleChange = (event) => {
+  //click handler
+  const handleButtonClick = (event) => {
+    if (event.target.value === "Enter") return handleEnter(currentEntry);
+    if (event.target.value === "Backspace") return handleBackspace();
+    return addDigit(event.target.value);
+  };
+
+  // unified digit handler (confluence of keyboard and number pad input streams)
+  const addDigit = (digit) => {
     setCurrentEntry((prev) => {
-      let newValue;
+      if (digit === "." && prev.includes(".")) return prev; // prevent multiple decimals
 
-      switch (event.type) {
-        case "click":
-          newValue = prev + event.target.value;
-          break;
-        case "keydown":
-          newValue = prev + event.key;
-          break;
-      }
+      const newValue = prev + digit;
 
+      // Auto-submit when length matches
       if (newValue.length === expectedLength) {
-        setTimeout(() => {
-          //short delay so user can see their correct answer
-          handleSubmit(newValue);
-        }, 150);
+        setTimeout(() => handleEnter(newValue), 150);
       }
 
       return newValue;
     });
   };
 
-  const handleBackspace = () => {
-    setCurrentEntry((prev) => prev.slice(0, -1));
-  };
+  const handleBackspace = () => setCurrentEntry((prev) => prev.slice(0, -1));
 
-  const handleSubmit = (currentEntry) => {
-    checkAnswer(currentEntry);
+  const handleEnter = (value) => {
+    checkAnswer(value);
     setCurrentEntry("");
   };
 
@@ -85,11 +68,7 @@ export default function EntryArea({ checkAnswer, expectedLength }) {
           </div>
         ))}
       </div>
-      <NumberPad
-        handleButtonClick={handleChange}
-        handleBackspace={handleBackspace}
-        handleSubmit={handleSubmit}
-      />
+      <NumberPad handleButtonClick={handleButtonClick} />
     </>
   );
 }

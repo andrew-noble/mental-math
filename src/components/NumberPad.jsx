@@ -1,8 +1,4 @@
-export default function NumberPad({
-  handleButtonClick,
-  handleBackspace,
-  handleSubmit,
-}) {
+export default function NumberPad({ handleButtonClick }) {
   return (
     <div className="bg-gray-100 p-2 my-3 rounded-lg flex flex-col items-center">
       <div className="p-3 grid grid-cols-3 gap-4 w-max my-3">
@@ -20,15 +16,17 @@ export default function NumberPad({
       <div className="flex">
         <button
           className="bg-yellow-500 text-white font-bold py-2 px-4 rounded hover:bg-yellow-600 m-3"
-          onClick={handleBackspace}
+          value="Backspace"
+          onClick={(event) => handleButtonClick(event)}
         >
           Backspace
         </button>
         <button
           className="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600 m-3"
-          onClick={handleSubmit}
+          value="Enter"
+          onClick={(event) => handleButtonClick(event)}
         >
-          Submit
+          Enter
         </button>
       </div>
     </div>
