@@ -48,7 +48,10 @@ export default function App() {
         {feedback ? (
           <div
             className={`animate-floatUp rounded p-2 bg-${feedback.color}-400 h-[50px]`}
-            onAnimationEnd={() => setFeedback(null)}
+            onAnimationEnd={() => {
+              document.querySelector(".animate-floatUp").style.opacity = 0; //this is a hack to prevent animation flicker caused by async setFeedback call
+              setFeedback(null);
+            }}
           >
             <p>{feedback.message}</p>
           </div>
