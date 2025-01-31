@@ -26,8 +26,9 @@ export default function App() {
 
   const checkAnswer = (answer) => {
     answer = parseInt(answer);
+    let isCorrect = answer === question.expectedAnswer;
 
-    if (answer === question.expectedAnswer) {
+    if (isCorrect) {
       console.log("correct");
       setScore((prev) => prev + 1);
       setStreak((prev) => prev + 1);
@@ -47,7 +48,7 @@ export default function App() {
         {/* this wrapper div required to prevent animation from jolting rest of DOM */}
         {feedback ? (
           <div
-            className={`animate-floatUp rounded p-2 bg-${feedback.color}-400 h-[50px]`}
+            className={`animate-floatUp rounded p-2 bg-${feedback.color}-300 h-[50px]`}
             onAnimationEnd={() => {
               document.querySelector(".animate-floatUp").style.opacity = 0; //this is a hack to prevent animation flicker caused by async setFeedback call
               setFeedback(null);
@@ -58,7 +59,9 @@ export default function App() {
         ) : null}
       </div>
 
-      <PromptBar prompt={question.prompt} />
+      <div className={feedback ? `bg-${feedback.color}-300 rounded` : ""}>
+        <PromptBar prompt={question.prompt} />
+      </div>
       <EntryArea
         checkAnswer={checkAnswer}
         expectedLength={question.expectedAnswer.toString().length}

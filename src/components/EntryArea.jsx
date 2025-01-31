@@ -30,7 +30,7 @@ export default function EntryArea({ checkAnswer, expectedLength }) {
 
       // Auto-submit when length matches
       if (newValue.length === expectedLength) {
-        setTimeout(() => handleEnter(newValue), 150);
+        handleEnter(newValue);
       }
 
       return newValue;
@@ -40,8 +40,10 @@ export default function EntryArea({ checkAnswer, expectedLength }) {
   const handleBackspace = () => setCurrentEntry((prev) => prev.slice(0, -1));
 
   const handleEnter = (value) => {
-    checkAnswer(value);
-    setCurrentEntry("");
+    setTimeout(() => {
+      checkAnswer(value);
+      setCurrentEntry("");
+    }, 150);
   };
 
   return (
