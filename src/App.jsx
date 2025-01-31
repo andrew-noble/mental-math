@@ -59,18 +59,18 @@ export default function App() {
         ) : null}
       </div>
 
-      <div className={feedback ? `bg-${feedback.color}-300 rounded` : ""}>
-        <PromptBar prompt={question.prompt} />
-      </div>
+      <PromptBar prompt={question.prompt} />
       <EntryArea
         checkAnswer={checkAnswer}
         expectedLength={question.expectedAnswer.toString().length}
       />
-      <div className="flex">
-        <h3 className="bg-slate-300 text-black p-2 rounded m-2 text-xl font-bold">
+      <div
+        className={feedback ? `bg-${feedback.color}-300 rounded flex` : "flex"}
+      >
+        <h3 className="text-black p-2 rounded m-2 text-xl font-bold">
           Score: {score}
         </h3>
-        <h3 className="bg-slate-300 text-black p-2 rounded m-2 text-xl font-bold">
+        <h3 className="text-black p-2 rounded m-2 text-xl font-bold">
           Streak: {streak}
         </h3>
       </div>
