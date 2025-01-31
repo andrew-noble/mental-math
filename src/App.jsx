@@ -43,16 +43,17 @@ export default function App() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen p-3">
-      {feedback ? (
-        <div
-          className={`animate-floatUp rounded p-2 bg-${feedback.color}-400 h-auto`}
-          onAnimationEnd={() => setFeedback(null)}
-        >
-          <p>{feedback.message}</p>
-        </div>
-      ) : (
-        <div className="h-min-35"></div>
-      )}
+      <div className="min-h-[50px]">
+        {/* this wrapper div required to prevent animation from jolting rest of DOM */}
+        {feedback ? (
+          <div
+            className={`animate-floatUp rounded p-2 bg-${feedback.color}-400 h-[50px]`}
+            onAnimationEnd={() => setFeedback(null)}
+          >
+            <p>{feedback.message}</p>
+          </div>
+        ) : null}
+      </div>
 
       <PromptBar prompt={question.prompt} />
       <EntryArea
