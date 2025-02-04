@@ -33,6 +33,7 @@ export default function Quiz({ module }) {
   };
 
   const handleFeedbackAnimationEnd = () => {
+    document.querySelector(".animate-floatUp").style.opacity = 0; //hack to prevent animation flicker
     setFeedback(null);
   };
 
