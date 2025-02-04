@@ -1,10 +1,20 @@
-import questions from "../questions.json";
+import questionsMt from "../questions-mt.json";
+import questionsPct from "../questions-pct.json";
+
+const moduleToFileMap = {
+  multiplication: questionsMt,
+  percentages: questionsPct,
+};
 
 //eventually this will be a call to an API
-export default function getQuestion() {
+export default function getQuestion(module) {
   const formatRandomizer = Math.floor(Math.random() * 3);
-  const questionRandomizer = Math.floor(Math.random() * questions.length);
-  const q = questions[questionRandomizer];
+
+  const questionRandomizer = Math.floor(
+    Math.random() * moduleToFileMap[module].length
+  );
+
+  const q = moduleToFileMap[module][questionRandomizer];
   let prompt;
   let expectedAnswer;
   const symbol = q.type === "multiplication" ? "x" : "% of";

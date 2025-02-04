@@ -1,0 +1,149 @@
+[
+  {
+    "id": 121,
+    "type": "percentage",
+    "operand1": 20,
+    "operand2": 30,
+    "result": 6
+  },
+  {
+    "id": 122,
+    "type": "percentage",
+    "operand1": 50,
+    "operand2": 20,
+    "result": 10
+  },
+  {
+    "id": 123,
+    "type": "percentage",
+    "operand1": 80,
+    "operand2": 25,
+    "result": 20
+  },
+  {
+    "id": 124,
+    "type": "percentage",
+    "operand1": 200,
+    "operand2": 5,
+    "result": 10
+  },
+  {
+    "id": 125,
+    "type": "percentage",
+    "operand1": 150,
+    "operand2": 10,
+    "result": 15
+  },
+  {
+    "id": 126,
+    "type": "percentage",
+    "operand1": 40,
+    "operand2": 15,
+    "result": 6
+  },
+  {
+    "id": 127,
+    "type": "percentage",
+    "operand1": 300,
+    "operand2": 2,
+    "result": 6
+  },
+  {
+    "id": 128,
+    "type": "percentage",
+    "operand1": 90,
+    "operand2": 10,
+    "result": 9
+  },
+  {
+    "id": 129,
+    "type": "percentage",
+    "operand1": 120,
+    "operand2": 25,
+    "result": 30
+  },
+  {
+    "id": 130,
+    "type": "percentage",
+    "operand1": 250,
+    "operand2": 20,
+    "result": 50
+  },
+  {
+    "id": 131,
+    "type": "percentage",
+    "operand1": 60,
+    "operand2": 5,
+    "result": 3
+  },
+  {
+    "id": 132,
+    "type": "percentage",
+    "operand1": 500,
+    "operand2": 2,
+    "result": 10
+  },
+  {
+    "id": 133,
+    "type": "percentage",
+    "operand1": 75,
+    "operand2": 20,
+    "result": 15
+  },
+  {
+    "id": 134,
+    "type": "percentage",
+    "operand1": 180,
+    "operand2": 25,
+    "result": 45
+  },
+  {
+    "id": 135,
+    "type": "percentage",
+    "operand1": 700,
+    "operand2": 5,
+    "result": 35
+  },
+  {
+    "id": 136,
+    "type": "percentage",
+    "operand1": 55,
+    "operand2": 10,
+    "result": 5.5
+  },
+  {
+    "id": 137,
+    "type": "percentage",
+    "operand1": 130,
+    "operand2": 15,
+    "result": 19.5
+  },
+  {
+    "id": 138,
+    "type": "percentage",
+    "operand1": 90,
+    "operand2": 2,
+    "result": 1.8
+  },
+  {
+    "id": 139,
+    "type": "percentage",
+    "operand1": 400,
+    "operand2": 10,
+    "result": 40
+  },
+  {
+    "id": 140,
+    "type": "percentage",
+    "operand1": 250,
+    "operand2": 5,
+    "result": 12.5
+  },
+  {
+    "id": 141,
+    "type": "percentage",
+    "operand1": 35,
+    "operand2": 20,
+    "result": 7
+  }
+]

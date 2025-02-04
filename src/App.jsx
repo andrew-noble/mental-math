@@ -1,7 +1,15 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { useState } from "react";
 import Quiz from "./components/Quiz.jsx";
+import Menu from "./components/Menu.jsx";
 
 export default function App() {
+  const [module, setModule] = useState("multiplication");
+
+  const handleModuleChange = (module) => {
+    setModule(module);
+  };
+
   return (
     <BrowserRouter basename="/mental-math">
       <div>
@@ -12,19 +20,13 @@ export default function App() {
 
         {/* Route definitions */}
         <Routes>
-          <Route path="/" element={<Quiz />} />
-          <Route path="/menu" element={<Home />} />
+          <Route path="/" element={<Quiz module={module} />} />
+          <Route
+            path="/menu"
+            element={<Menu changeModule={handleModuleChange} />}
+          />
         </Routes>
       </div>
     </BrowserRouter>
-  );
-}
-
-// Simple Home component
-function Home() {
-  return (
-    <div>
-      <h1>Welcome to the Home Page</h1>
-    </div>
   );
 }

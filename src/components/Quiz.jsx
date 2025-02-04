@@ -3,8 +3,8 @@ import getQuestion from "../services/getQuestion";
 import EntryArea from "./EntryArea";
 import PromptBar from "./PromptBar";
 
-export default function App() {
-  const [question, setQuestion] = useState(getQuestion());
+export default function Quiz({ module }) {
+  const [question, setQuestion] = useState(getQuestion(module));
   const [feedback, setFeedback] = useState(null);
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
@@ -39,7 +39,7 @@ export default function App() {
       setFeedback({ type: "incorrect", message: "Incorrect 😥", color: "red" });
     }
     //reset question
-    setQuestion(getQuestion());
+    setQuestion(getQuestion(module));
   };
 
   return (
