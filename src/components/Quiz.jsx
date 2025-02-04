@@ -2,6 +2,7 @@ import { useState } from "react";
 import getQuestion from "../services/getQuestion";
 import EntryArea from "./EntryArea";
 import PromptBar from "./PromptBar";
+import { updateUserStats } from "../services/updateStats";
 
 export default function Quiz({ module }) {
   const [question, setQuestion] = useState(getQuestion(module));
@@ -28,13 +29,15 @@ export default function Quiz({ module }) {
     answer = parseInt(answer);
     let isCorrect = answer === question.expectedAnswer;
 
+    updateUserStats(question.id, isCorrect);
+
     if (isCorrect) {
-      console.log("correct");
+      // console.log("correct");
       setScore((prev) => prev + 1);
       setStreak((prev) => prev + 1);
       setFeedback({ type: "correct", message: "Correct! 🎉", color: "green" });
     } else {
-      console.log("incorrect");
+      // console.log("incorrect");
       setStreak(0);
       setFeedback({ type: "incorrect", message: "Incorrect 😥", color: "red" });
     }

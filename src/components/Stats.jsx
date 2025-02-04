@@ -8,7 +8,7 @@ export default function Stats({ module }) {
   //get questions for the active module
   const moduleQuestions = questions.filter((q) => q.type === module);
 
-  //fix this later to use ui components like from shadcn rather than manual conditional rendering
+  //fix this later to use ui components like from shadcn rather than manual conditional rendering and state
   return (
     <div>
       {module === "multiplication" ? (
