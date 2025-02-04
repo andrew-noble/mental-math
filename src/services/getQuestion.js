@@ -1,5 +1,7 @@
 import questions from "../questions.json";
 
+//this will require some refactoring... basically all it does now it format the question
+
 //eventually this will be a call to an API
 export default function getQuestion(module) {
   //get only the questions for the active module
@@ -29,5 +31,5 @@ export default function getQuestion(module) {
       break;
   }
 
-  return { prompt, expectedAnswer };
+  return { id: q.id, prompt, expectedAnswer };
 }
