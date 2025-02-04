@@ -5,6 +5,7 @@ import questions from "../questions.json";
 //eventually this will be a call to an API
 export default function getQuestion(module) {
   //get only the questions for the active module
+  console.log(questions.questions);
   const moduleQuestions = questions.questions.filter((q) => q.type === module);
 
   const formatRandomizer = Math.floor(Math.random() * 3);

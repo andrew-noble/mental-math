@@ -18,7 +18,7 @@ export default function Menu({ changeModule }) {
         title="Percentages"
         description="Practice practical percentages"
         onClick={() => {
-          changeModule("percentages");
+          changeModule("percentage");
           navigate("/");
         }}
       />
