@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState } from "react";
 import Quiz from "./components/Quiz.jsx";
 import Menu from "./components/Menu.jsx";
+import Stats from "./components/Stats.jsx";
 
 export default function App() {
   const [module, setModule] = useState("multiplication");
@@ -15,7 +16,9 @@ export default function App() {
       <div>
         {/* Navigation */}
         <nav>
-          <Link to="/">Quiz</Link> | <Link to="/menu">Menu</Link>
+          <Link to="/">Quiz </Link>
+          <Link to="/menu">Modules </Link>
+          <Link to="/stats">Stats </Link>
         </nav>
 
         {/* Route definitions */}
@@ -25,6 +28,7 @@ export default function App() {
             path="/menu"
             element={<Menu changeModule={handleModuleChange} />}
           />
+          <Route path="/stats" element={<Stats module={module} />} />
         </Routes>
       </div>
     </BrowserRouter>

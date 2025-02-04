@@ -6,7 +6,6 @@ export default function Menu({ changeModule }) {
 
   return (
     <div>
-      <h1>Modules</h1>
       <ModuleCard
         title="Multiplication Tables"
         description="Practice your multiplication tables, from 2x2 to 12x12"
