@@ -7,6 +7,7 @@ export default function FeedbackMessage({ feedback, onAnimationEnd }) {
           onAnimationEnd={onAnimationEnd}
         >
           <p>{feedback.message}</p>
+          {feedback.time && <p>{feedback.time}ms</p>}
         </div>
       )}
     </div>
