@@ -5,6 +5,8 @@ import { getItem } from "../services/localStorage";
 
 const questionList = questions.questions;
 
+//this is not ideal, refactor needed on data layer so that stats + questions exist closer or get joined via sql
+
 export default function Stats({ module }) {
   //get questions for the active module
   const moduleQuestions = questionList.filter((q) => q.type === module);

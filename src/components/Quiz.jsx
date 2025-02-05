@@ -22,9 +22,7 @@ export default function Quiz({ module }) {
   useEffect(() => {
     stopwatchRef.current = new Stopwatch();
 
-    return () => {
-      stopwatchRef.current.stop();
-    };
+    return () => stopwatchRef.current.stop();
   }, []);
 
   const handleStart = () => {
