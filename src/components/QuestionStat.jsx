@@ -1,5 +1,5 @@
 export default function QuestionStat({
-  question,
+  formattedQuestion,
   total,
   correct,
   averageTime,
@@ -8,7 +8,7 @@ export default function QuestionStat({
 
   return (
     <div>
-      <p>{question.id}</p>
+      <p>{formattedQuestion}</p>
       <p>Accuracy (correct/total): {accuracyPct.toFixed(2)}%</p>
       <p>Average time: {averageTime}s</p>
     </div>
