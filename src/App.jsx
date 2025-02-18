@@ -13,24 +13,23 @@ export default function App() {
 
   return (
     <BrowserRouter basename="/mental-math">
-      <div>
-        {/* Navigation */}
-        <nav>
-          <Link to="/">Quiz </Link>
-          <Link to="/menu">Modules </Link>
-          <Link to="/stats">Stats </Link>
-        </nav>
+      {/* Navigation */}
+      <nav className="p-4">
+        <Link to="/">Quiz </Link>
+        <Link to="/menu">Modules </Link>
+        <Link to="/stats">Stats </Link>
+      </nav>
 
-        {/* Route definitions */}
-        <Routes>
-          <Route path="/" element={<Quiz module={module} />} />
-          <Route
-            path="/menu"
-            element={<Menu changeModule={handleModuleChange} />}
-          />
-          <Route path="/stats" element={<Stats module={module} />} />
-        </Routes>
-      </div>
+      {/* Route definitions */}
+
+      <Routes>
+        <Route path="/" element={<Quiz module={module} />} />
+        <Route
+          path="/menu"
+          element={<Menu changeModule={handleModuleChange} />}
+        />
+        <Route path="/stats" element={<Stats module={module} />} />
+      </Routes>
     </BrowserRouter>
   );
 }

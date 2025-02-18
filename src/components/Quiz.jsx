@@ -70,7 +70,7 @@ export default function Quiz({ module }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen p-3">
+    <div className="flex flex-col items-center justify-center h-full p-3">
       <StartModal isVisible={!isStarted} onClose={handleStart} />
       <div
         className={`transition-filter duration-300 ${

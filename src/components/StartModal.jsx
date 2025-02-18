@@ -4,7 +4,7 @@ export default function StartModal({ isVisible, onClose }) {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div className="inset-0 flex justify-center items-center">
       <div className="bg-white p-6 rounded-lg text-center">
         <h2 className="text-2xl font-bold mb-4">Get Ready!</h2>
         <p className="mb-4">
