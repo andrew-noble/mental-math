@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import { useState } from "react";
 import Quiz from "./components/Quiz.jsx";
 import Menu from "./components/Menu.jsx";
@@ -14,10 +14,37 @@ export default function App() {
   return (
     <BrowserRouter basename="/mental-math">
       {/* Navigation */}
-      <nav className="p-4">
-        <Link to="/">Quiz </Link>
-        <Link to="/menu">Modules </Link>
-        <Link to="/stats">Stats </Link>
+      <nav className="p-4 flex justify-center gap-4">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `text-lg font-medium transition-colors ${
+              isActive ? "text-blue-500" : "hover:text-blue-500"
+            }`
+          }
+        >
+          Quiz
+        </NavLink>
+        <NavLink
+          to="/menu"
+          className={({ isActive }) =>
+            `text-lg font-medium transition-colors ${
+              isActive ? "text-blue-500" : "hover:text-blue-500"
+            }`
+          }
+        >
+          Modules
+        </NavLink>
+        <NavLink
+          to="/stats"
+          className={({ isActive }) =>
+            `text-lg font-medium transition-colors ${
+              isActive ? "text-blue-500" : "hover:text-blue-500"
+            }`
+          }
+        >
+          Stats
+        </NavLink>
       </nav>
 
       {/* Route definitions */}
