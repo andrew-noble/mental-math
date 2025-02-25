@@ -16,6 +16,7 @@ export function updateUserStats(questionId, isCorrect, time) {
   const oldCorrect = userStats[questionId].correct;
 
   const newAverageTime = (oldAverageTime * oldTotal + time) / (oldTotal + 1);
+  newAverageTime = newAverageTime.toFixed(2);
   const newTotal = oldTotal + 1;
   const newCorrect = oldCorrect + (isCorrect ? 1 : 0);
 
