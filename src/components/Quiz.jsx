@@ -62,6 +62,7 @@ export default function Quiz({ module }) {
     }
     //reset question
     setQuestion(getQuestion(module));
+    stopwatchRef.current.restart();
   };
 
   const handleFeedbackAnimationEnd = () => {

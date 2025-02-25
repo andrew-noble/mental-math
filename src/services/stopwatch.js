@@ -25,9 +25,9 @@ export default class Stopwatch {
   }
 
   stop() {
-    // if (!this.isRunning) {
-    //   throw new Error("Stopwatch is not running");
-    // }
+    if (!this.isRunning) {
+      throw new Error("Stopwatch is not running");
+    }
     this.isRunning = false;
   }
 
