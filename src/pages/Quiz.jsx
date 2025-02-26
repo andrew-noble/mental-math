@@ -66,7 +66,7 @@ export default function Quiz({ module }) {
 
   return (
     <div className="flex flex-col items-center justify-center h-full p-3">
-      <div className="transition-filter duration-300 flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center">
         <FeedbackMessage
           feedback={feedback}
           onAnimationEnd={handleFeedbackAnimationEnd}
