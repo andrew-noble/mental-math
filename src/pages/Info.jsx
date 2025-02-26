@@ -32,6 +32,19 @@ export default function Info() {
           </a>
         </p>
 
+        <br />
+        <p className="text-gray-700">
+          You can find the source code on{" "}
+          <a
+            href="https://github.com/andrew-noble/mental-math"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:text-blue-800 hover:underline font-medium"
+          >
+            GitHub
+          </a>
+        </p>
+
         <div className="mt-8 flex gap-3">
           <button
             onClick={handleClearData}
