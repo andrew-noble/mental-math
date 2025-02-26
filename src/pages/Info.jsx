@@ -31,7 +31,11 @@ export default function Info() {
             website!
           </a>
         </p>
-
+        <br />
+        <p className="text-gray-700">
+          It's intended for mobile and works best when you bookmark it to your
+          homescreen for quick access
+        </p>
         <br />
         <p className="text-gray-700">
           You can find the source code on{" "}
