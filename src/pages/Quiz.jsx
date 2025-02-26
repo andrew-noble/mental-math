@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import getQuestion from "../services/getQuestion";
-import EntryArea from "./EntryArea";
-import PromptBar from "./PromptBar";
+import EntryArea from "../components/EntryArea";
+import PromptBar from "../components/PromptBar";
 import { updateUserStats } from "../services/updateStats";
-import FeedbackMessage from "./FeedbackMessage";
-import Scoreboard from "./Scoreboard";
+import FeedbackMessage from "../components/FeedbackMessage";
+import Scoreboard from "../components/Scoreboard";
 import Stopwatch from "../services/stopwatch";
-import StartModal from "./StartModal";
+import StartModal from "../components/StartModal";
 
 export default function Quiz({ module }) {
   const [isStarted, setIsStarted] = useState(false);
@@ -38,12 +38,11 @@ export default function Quiz({ module }) {
       stopwatchRef.current.getElapsedTime()
     );
 
-    time > 10 ? (time = 10) : time; //clamp time to 10 seconds bc people prolly idle
+    time > 10 ? (time = 5) : time; //clamp time to 5 seconds bc people prolly idle
 
     updateUserStats(question.id, isCorrect, time);
 
     if (isCorrect) {
-      // console.log("correct");
       setScore((prev) => prev + 1);
       setStreak((prev) => prev + 1);
       setFeedback({
@@ -53,7 +52,6 @@ export default function Quiz({ module }) {
         time: time,
       });
     } else {
-      // console.log("incorrect");
       setStreak(0);
       setFeedback({
         type: "incorrect",

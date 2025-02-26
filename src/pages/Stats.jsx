@@ -1,5 +1,5 @@
 import questions from "../questions.json";
-import QuestionStat from "./QuestionStat";
+import QuestionStat from "../components/QuestionStat";
 import { getAllItems } from "../services/localStorage";
 
 const questionList = questions.questions;

@@ -1,4 +1,4 @@
-import ModuleCard from "./ModuleCard";
+import ModuleCard from "../components/ModuleCard";
 import { useNavigate } from "react-router-dom";
 
 export default function Menu({ changeModule }) {

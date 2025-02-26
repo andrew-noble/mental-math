@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import { useState } from "react";
-import Quiz from "./components/Quiz.jsx";
-import Menu from "./components/Menu.jsx";
-import Stats from "./components/Stats.jsx";
+import Quiz from "./pages/Quiz.jsx";
+import Modules from "./pages/Modules.jsx";
+import Stats from "./pages/Stats.jsx";
+import Info from "./pages/Info.jsx";
 
 export default function App() {
   const [module, setModule] = useState("multiplication");
@@ -26,7 +27,7 @@ export default function App() {
           Quiz
         </NavLink>
         <NavLink
-          to="/menu"
+          to="/modules"
           className={({ isActive }) =>
             `text-lg font-medium transition-colors ${
               isActive ? "text-blue-500" : "hover:text-blue-500"
@@ -45,6 +46,16 @@ export default function App() {
         >
           Stats
         </NavLink>
+        <NavLink
+          to="/info"
+          className={({ isActive }) =>
+            `text-lg font-medium transition-colors ${
+              isActive ? "text-blue-500" : "hover:text-blue-500"
+            }`
+          }
+        >
+          Info
+        </NavLink>
       </nav>
 
       {/* Route definitions */}
@@ -52,10 +63,11 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Quiz module={module} />} />
         <Route
-          path="/menu"
-          element={<Menu changeModule={handleModuleChange} />}
+          path="/modules"
+          element={<Modules changeModule={handleModuleChange} />}
         />
         <Route path="/stats" element={<Stats module={module} />} />
+        <Route path="/info" element={<Info />} />
       </Routes>
     </BrowserRouter>
   );
