@@ -5,8 +5,8 @@ export function setItem(key, value) {
 
 // Get a value from localStorage
 export function getItem(key) {
-  const value = localStorage.getItem(key);
-  return value ? JSON.parse(value) : null;
+  const item = localStorage.getItem(key);
+  return item ? JSON.parse(item) : null;
 }
 
 // Remove a value from localStorage
