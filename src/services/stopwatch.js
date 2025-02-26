@@ -25,13 +25,10 @@ export default class Stopwatch {
   }
 
   stop() {
-    if (!this.isRunning) {
-      throw new Error("Stopwatch is not running");
-    }
     this.isRunning = false;
   }
 
-  formatTime(ms) {
+  formatTimeToString(ms) {
     const seconds = ms / 1000;
     return seconds.toFixed(1);
   }

@@ -1,32 +1,30 @@
 import { setItem, getItem } from "../services/localStorage";
 
 export function updateUserStats(questionId, isCorrect, time) {
-  let userStats = getItem("userStats"); //should be an object
+  const storageKey = `userStats_${questionId}`;
 
-  if (!userStats) {
-    userStats = {};
-  }
-
-  if (!userStats[questionId]) {
-    userStats[questionId] = { total: 0, correct: 0, averageTime: 0 };
-  }
-
-  const oldAverageTime = userStats[questionId].averageTime;
-  const oldTotal = userStats[questionId].total;
-  const oldCorrect = userStats[questionId].correct;
-
-  const newAverageTime = (oldAverageTime * oldTotal + time) / (oldTotal + 1);
-  const newTotal = oldTotal + 1;
-  const newCorrect = oldCorrect + (isCorrect ? 1 : 0);
-
-  userStats = {
-    ...userStats,
-    [questionId]: {
-      total: newTotal,
-      correct: newCorrect,
-      averageTime: newAverageTime,
-    },
+  // Get existing stats or initialize defaults
+  const questionStats = getItem(storageKey) || {
+    total: 0,
+    correct: 0,
+    averageTime: 0,
   };
 
-  setItem("userStats", userStats);
+  // Calculate new values
+  const newTotal = questionStats.total + 1;
+  const newCorrect = questionStats.correct + (isCorrect ? 1 : 0);
+  const newAverageTime =
+    (questionStats.averageTime * questionStats.total + time) / newTotal;
+
+  // Create updated stats
+  const updatedStats = {
+    total: newTotal,
+    correct: newCorrect,
+    averageTime: newAverageTime,
+  };
+
+  // Save to localStorage
+  setItem(storageKey, updatedStats);
+
+  return updatedStats; // Return updated stats if needed
 }

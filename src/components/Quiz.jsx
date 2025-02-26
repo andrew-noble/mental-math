@@ -35,7 +35,7 @@ export default function Quiz({ module }) {
     answer = parseInt(answer);
     let isCorrect = answer === question.expectedAnswer;
 
-    const time = stopwatchRef.current.formatTime(
+    const time = stopwatchRef.current.formatTimeToString(
       stopwatchRef.current.getElapsedTime()
     );
     updateUserStats(question.id, isCorrect, time);

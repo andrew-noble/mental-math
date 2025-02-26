@@ -1,47 +1,50 @@
 import questions from "../questions.json";
 import QuestionStat from "./QuestionStat";
-import { getItem } from "../services/localStorage";
+import { getAllItems } from "../services/localStorage";
 
 const questionList = questions.questions;
 
 export default function Stats() {
-  const userStats = getItem("userStats") || {};
+  const allItems = getAllItems();
+  const allStats = allItems.filter((item) => item.key.startsWith("userStats_"));
 
-  // Only get multiplication questions
-  const reducedMultiplicationQuestions = questionList.filter(
-    (q) => q.type === "multiplication" && q.id in userStats //only include mult questions that have been answered
-  );
-
-  //this is not ideal, refactor needed on data layer so that stats + questions exist closer or get joined via sql
-  const reducedStats = reducedMultiplicationQuestions.map((question) => {
+  //super fugly. this is, in effect, a join between stats and questions
+  const stats = allStats.map((stat) => {
+    const questionId = stat.key.split("_")[1];
+    const data = JSON.parse(stat.value);
+    const question = questionList.find((q) => q.id === parseInt(questionId));
     return {
       id: question.id,
       formattedQuestion: `${question.operand1} x ${question.operand2}`,
-      total: userStats[question.id]?.total || 0,
-      correct: userStats[question.id]?.correct || 0,
-      averageTime: userStats[question.id]?.averageTime || 0,
+      total: data.total,
+      correct: data.correct,
+      averageTime: data.averageTime,
     };
   });
 
-  return reducedStats.length === 0 ? (
-    <div>
-      <h1 className="flex justify-center">No stats yet</h1>
-    </div>
-  ) : (
+  if (stats.length === 0) {
+    return (
+      <div>
+        <h1 className="flex justify-center">No stats yet</h1>
+      </div>
+    );
+  }
+
+  return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
-        {reducedStats.map((question) => (
+        {stats.map((stat) => (
           <QuestionStat
-            key={question.id}
-            formattedQuestion={question.formattedQuestion}
-            total={question.total}
-            correct={question.correct}
-            averageTime={question.averageTime}
+            key={stat.id}
+            formattedQuestion={stat.formattedQuestion}
+            total={stat.total}
+            correct={stat.correct}
+            averageTime={stat.averageTime}
           />
         ))}
       </div>
       <h1 className="flex justify-center">
-        (Stats only for multiplication for now)
+        (Only multiplication stats, for now.)
       </h1>
     </div>
   );
