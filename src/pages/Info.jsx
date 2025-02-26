@@ -32,6 +32,13 @@ export default function Info() {
           </a>
         </p>
 
+        <br />
+
+        <p className="text-gray-700">
+          The only data I collect is about your performance on the quizzes (so
+          that I can provide stats), but if you want to clear it:
+        </p>
+
         <div className="mt-8 flex gap-3">
           <button
             onClick={handleClearData}

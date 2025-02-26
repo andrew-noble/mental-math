@@ -6,10 +6,8 @@ import { updateUserStats } from "../services/updateStats";
 import FeedbackMessage from "../components/FeedbackMessage";
 import Scoreboard from "../components/Scoreboard";
 import Stopwatch from "../services/stopwatch";
-import StartModal from "../components/StartModal";
 
 export default function Quiz({ module }) {
-  const [isStarted, setIsStarted] = useState(false);
   const [question, setQuestion] = useState(getQuestion(module));
   const [feedback, setFeedback] = useState(null);
   const [score, setScore] = useState(0);
@@ -21,14 +19,10 @@ export default function Quiz({ module }) {
   //this useEffect is to ensure the stopwatch is stopped when user navigates away from the quiz
   useEffect(() => {
     stopwatchRef.current = new Stopwatch();
+    stopwatchRef.current.start();
 
     return () => stopwatchRef.current.stop();
   }, []);
-
-  const handleStart = () => {
-    setIsStarted(true);
-    stopwatchRef.current.start();
-  };
 
   const checkAnswer = (answer) => {
     answer = parseInt(answer);
@@ -72,12 +66,7 @@ export default function Quiz({ module }) {
 
   return (
     <div className="flex flex-col items-center justify-center h-full p-3">
-      <StartModal isVisible={!isStarted} onClose={handleStart} />
-      <div
-        className={`transition-filter duration-300 ${
-          !isStarted ? "filter blur-sm" : ""
-        } flex flex-col items-center justify-center`}
-      >
+      <div className="transition-filter duration-300 flex flex-col items-center justify-center">
         <FeedbackMessage
           feedback={feedback}
           onAnimationEnd={handleFeedbackAnimationEnd}
