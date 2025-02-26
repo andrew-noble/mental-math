@@ -23,18 +23,26 @@ export default function Stats() {
     };
   });
 
-  return (
+  return reducedStats.length === 0 ? (
     <div>
-      <h1>Stats (Only Multiplication for now -- other modules coming soon!)</h1>
-      {reducedStats.map((question) => (
-        <QuestionStat
-          key={question.id}
-          formattedQuestion={question.formattedQuestion}
-          total={question.total}
-          correct={question.correct}
-          averageTime={question.averageTime}
-        />
-      ))}
+      <h1 className="flex justify-center">No stats yet</h1>
+    </div>
+  ) : (
+    <div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+        {reducedStats.map((question) => (
+          <QuestionStat
+            key={question.id}
+            formattedQuestion={question.formattedQuestion}
+            total={question.total}
+            correct={question.correct}
+            averageTime={question.averageTime}
+          />
+        ))}
+      </div>
+      <h1 className="flex justify-center">
+        (Stats only for multiplication for now)
+      </h1>
     </div>
   );
 }
