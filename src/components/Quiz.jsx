@@ -28,16 +28,18 @@ export default function Quiz({ module }) {
   const handleStart = () => {
     setIsStarted(true);
     stopwatchRef.current.start();
-    console.log("Timer started");
   };
 
   const checkAnswer = (answer) => {
     answer = parseInt(answer);
     let isCorrect = answer === question.expectedAnswer;
 
-    const time = stopwatchRef.current.formatTimeToString(
+    let time = stopwatchRef.current.formatTimeToString(
       stopwatchRef.current.getElapsedTime()
     );
+
+    time > 10 ? (time = 10) : time; //clamp time to 10 seconds bc people prolly idle
+
     updateUserStats(question.id, isCorrect, time);
 
     if (isCorrect) {
