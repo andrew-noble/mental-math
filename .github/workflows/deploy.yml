@@ -43,6 +43,7 @@ jobs:
       - name: Build
         run: npm run build
 
+      # This is a workaround to make gh pages support server-side routing
       - name: Fix GitHub Pages 404 Issue
         run: cp dist/index.html dist/404.html
 
