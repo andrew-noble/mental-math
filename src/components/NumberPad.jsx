@@ -5,7 +5,7 @@ export default function NumberPad({ handleButtonClick }) {
         {[7, 8, 9, 4, 5, 6, 1, 2, 3, 0, "."].map((num) => (
           <button
             key={num}
-            className="bg-blue-500 text-white font-bold py-3 px-5 text-lg rounded hover:bg-blue-600"
+            className="bg-blue-500 text-white font-bold py-4 px-6 text-lg rounded hover:bg-blue-600"
             value={num}
             onClick={(event) => handleButtonClick(event)}
           >
